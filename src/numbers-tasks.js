@@ -424,7 +424,23 @@ function getNumberValue(number) {
  * 'a'      => false
  * 5        => true
  * '5'      => false
+ *
+ * //if (
+  //   typeof number === 'number' &&
+  //   number !== Infinity &&
+  //   number !== null &&
+  //   !Number.isNaN(number)
+  // )
+  //   return true;
+  // if (
+  //   typeof number === 'object' &&
+  //   number !== null &&
+  //   typeof number.valueOf() === 'number'
+  // )
+  //   return true;
+  // return false;
  */
+
 function isNumber(number) {
   if (
     typeof number === 'number' &&
@@ -591,7 +607,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  return firstNumber >= secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -612,6 +628,9 @@ function getRandomInteger(min, max) {
 
 /**
  * Returns the length of the hypotenuse of a right triangle.
+ * // return Math.sqrt(a ** 2 + b ** 2) === Infinity
+  //   ? 1.7976931348623157e308
+  //   : Math.sqrt(a ** 2 + b ** 2);
  *
  * @param {number} a
  * @param {number} b
@@ -621,9 +640,7 @@ function getRandomInteger(min, max) {
  * 3, 4 => 5
  */
 function getHypotenuse(a, b) {
-  return Math.sqrt(a ** 2 + b ** 2) === Infinity
-    ? 1.7976931348623157e308
-    : Math.sqrt(a ** 2 + b ** 2);
+  return Math.hypot(a, b);
 }
 
 /**
