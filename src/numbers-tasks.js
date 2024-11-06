@@ -442,20 +442,7 @@ function getNumberValue(number) {
  */
 
 function isNumber(number) {
-  if (
-    typeof number === 'number' &&
-    number !== Infinity &&
-    number !== null &&
-    !Number.isNaN(number)
-  )
-    return true;
-  if (
-    typeof number === 'object' &&
-    number !== null &&
-    typeof number.valueOf() === 'number'
-  )
-    return true;
-  return false;
+  return Number.isFinite(number);
 }
 
 /**
